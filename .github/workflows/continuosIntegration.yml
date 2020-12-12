@@ -35,6 +35,9 @@ jobs:
       
       - name: Run server
         run: rails server
+
+      - name: Stop server
+        run: SIGINT/Ctrl-C
       
       - name: Execute tests on api
         run: bundle exec rails test
@@ -57,6 +60,9 @@ jobs:
       
       - name: Execute server
         run: yarn dev
+      
+      - name: Stop server
+        run: SIGINT/Ctrl-C
       
       - name: Execute tests on client
         run: yarn run test:unit
