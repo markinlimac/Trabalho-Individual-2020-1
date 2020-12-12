@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  client:
+    container_name: client
+    build: ./client
+    ports:
+      - 8080:8080
+    volumes:
+      - ./client:/app
+
+  api:
+    container_name: api
+    build: ./api
+    ports:
+      - 3000:3000
+    volumes:
+      - ./api:/api
+    depends_on:
+      - db
+    links:
+      - db
+
+  db:
+    image: postgres
+    env_file: ./db.env
