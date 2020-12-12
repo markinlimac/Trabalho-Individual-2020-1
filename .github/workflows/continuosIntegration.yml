@@ -37,6 +37,9 @@ jobs:
       #   run: rails server
       
       - name: Execute tests on api
+          POSTGRES_DB: 127.0.0.1
+          POSTGRES_USERNAME: postgres
+          POSTGRES_PASSWORD: postgres
         run: bundle exec rails test
   
   client:
