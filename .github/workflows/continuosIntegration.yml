@@ -1,0 +1,33 @@
+name: Continuos Integration
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby 
+      - uses: ruby/setup-ruby@v1
+      - name: Ruby gem cache
+        uses: actions/cache@v1
+        with:
+          ruby-version: 2.5.7
+    
+      - name: Instalando dependências
+        run: bundle install
+      
+      - name: rodando db
+        run: rake db:create && rake db:migrate
+      
+      - name: Rodando servidor
+        run: rails server
+    
+      - name: Rodando client
+        run: yarn install && yarn dev
+      
+      - name: Executando testes da api
+        run: bundle exec rails test
+      
+      - name: Executando testes do client
+        run: yarn run test:unit
