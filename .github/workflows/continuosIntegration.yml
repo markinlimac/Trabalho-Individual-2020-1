@@ -13,9 +13,8 @@ jobs:
         ports: ['5432:5432']
         env:
           POSTGRES_DB: 127.0.0.1
-          POSTGRES_USER: postgres
+          POSTGRES_USERNAME: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_HOST: database
     steps:
       - name: Runner download
         uses: actions/checkout@v2
@@ -30,9 +29,8 @@ jobs:
       - name: Run database
         env:
           POSTGRES_DB: 127.0.0.1
-          POSTGRES_USER: postgres
+          POSTGRES_USERNAME: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_HOST: database
         run: rake db:create && rake db:migrate
       
       - name: Run server
