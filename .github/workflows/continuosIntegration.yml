@@ -15,16 +15,22 @@ jobs:
         with:
           ruby-version: 2.5.7
     
-      - name: Instalando dependências
+      - name: Install dependencies
         run: bundle install
       
-      - name: Rodando Banco de dados 
+      - name: Run database
+        env:
+          POSTGRES_DB: db
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_PORT: 5432
+          POSTGRES_HOST: database
         run: rake db:create && rake db:migrate
       
-      - name: Rodando servidor
+      - name: Run server
         run: rails server
       
-      - name: Executando testes da api
+      - name: Execute tests on api
         run: bundle exec rails test
   
   client:
@@ -40,8 +46,11 @@ jobs:
         with:
           node-version: 14
     
-      - name: Rodando client
-        run: yarn install && yarn dev
+      - name: Install dependencies
+        run: yarn install
       
-      - name: Executando testes do client
+      - name: Execute server
+        run: yarn dev
+      
+      - name: Execute tests on client
         run: yarn run test:unit
