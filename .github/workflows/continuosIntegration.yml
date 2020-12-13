@@ -48,7 +48,7 @@ jobs:
         env:
           CC_TEST_REPORTER_ID: 0e2aafa3a6eeb5daa427b8fa33840dcdb8930a3c081c30c42bdaa929a6eaf4f5
         with:
-          working-directory: api
+          workingDirectory: api
           coverageCommand: bundle exec rails test
   
   client:
