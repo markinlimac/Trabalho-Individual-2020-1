@@ -43,13 +43,13 @@ jobs:
           POSTGRES_PASSWORD: postgres
         run: bundle exec rails test
       
-      - name: Api coverage
-        uses: paambaati/codeclimate-action@v2.7.5
-        env:
-          CC_TEST_REPORTER_ID: 0e2aafa3a6eeb5daa427b8fa33840dcdb8930a3c081c30c42bdaa929a6eaf4f5
-        with:
-          workingDirectory: api
-          coverageCommand: bundle exec rails test
+      # - name: Api coverage
+      #   uses: paambaati/codeclimate-action@v2.7.5
+      #   env:
+      #     CC_TEST_REPORTER_ID: 0e2aafa3a6eeb5daa427b8fa33840dcdb8930a3c081c30c42bdaa929a6eaf4f5
+      #   with:
+      #     workingDirectory: api
+      #     coverageCommand: bundle exec rails test
   
   client:
     runs-on: ubuntu-latest
