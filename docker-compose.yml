@@ -16,6 +16,10 @@ services:
       - 3000:3000
     volumes:
       - ./api:/api
+    environment:
+      - POSTGRES_DB=db
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=password
     depends_on:
       - db
     links:
@@ -23,4 +27,3 @@ services:
 
   db:
     image: postgres
-    env_file: ./db.env
