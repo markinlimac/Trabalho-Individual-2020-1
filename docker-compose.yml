@@ -24,6 +24,6 @@ services:
   db:
     image: postgres
     environment:
-      - POSTGRES_DB=localhost
+      - POSTGRES_DB=db
       - POSTGRES_USERNAME=postgres
       - POSTGRES_PASSWORD=password
