@@ -12,6 +12,7 @@ sudo docker-compose run api rake db:create
 sudo docker-compose run api rake db:migrate 
 sudo docker-compose up
 ```
+Caso dê erro na primeira execução do `sudo docker-compose run api rake db:create` execute-o de novo.  
 O docker-compose ira fazer a orquestração e subir o front-end na porta 8080 e o back-end na porta 3000.
 
 ## Pipeline
